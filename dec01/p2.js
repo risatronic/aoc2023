@@ -17,15 +17,10 @@ const numbers = {
 const sum = values.reduce((acc, string) => {
   let num = ''
   let first = string.match(/[\d]|one|two|three|four|five|six|seven|eight|nine/)
-  let last = string.match(/([\d]|one|two|three|four|five|six|seven|eight|nine)(?=.*([\d]|one|two|three|four|five|six|seven|eight|nine))/)
+  let last = string.match(/(?=.+(\d|one|two|three|four|five|six|seven|eight|nine))/)
 
   first = Number(first) ? first : numbers[first]
-
-  if(!last){
-    last = first
-  } else {
-    last = Number(last[2]) ? last[2] : numbers[last[2]]
-  }
+  last = !last ? first : (Number(last[1]) ? last[1] : numbers[last[1]]) // value is returned in first capture group
 
   return acc += (num + first + last) / 1
 }, 0)
