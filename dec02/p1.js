@@ -13,9 +13,7 @@ for(const [index, value] of values.entries()){
     green: 0
   }
 
-  const cubeString = value.split(': ')
-  cubeString.splice(0, 1)
-  const cubeArray = cubeString[0].replaceAll(';', ',').split(', ')
+  const cubeArray = value.split(': ')[1].replaceAll(';', ',').split(', ')
 
   for(let set of cubeArray){
     set = set.split(' ')
