@@ -9,8 +9,8 @@ let firstWin, lastWin
 for(let i = 1, j = time - 1; i < time, j > i;){
     if(!firstWin && i * (time - i) > distance) firstWin = i
     if(!lastWin && j * (time - j) > distance) lastWin = j
-
     if(firstWin && lastWin) break
+    
     i++, j--
 }
 
